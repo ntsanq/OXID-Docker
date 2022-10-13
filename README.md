@@ -15,6 +15,7 @@
 2. Add `127.0.0.1 oxid.localhost` to your `etc/hosts` file (if needed eg. windows)
 3. Fire up container
 ```bash
+cd OXID-Docker/docker
 # create container
 docker-compose build
 # fire up container
