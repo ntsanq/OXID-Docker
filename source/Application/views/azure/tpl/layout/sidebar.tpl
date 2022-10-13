@@ -1,0 +1,50 @@
+[{foreach from=$oxidBlock_sidebar item="_block"}]
+    [{$_block}]
+[{/foreach}]
+
+[{block name="sidebar"}]
+    [{block name="sidebar_adminbanner"}]
+        [{if $oView->isDemoShop()}]
+            [{include file="widget/sidebar/adminbanner.tpl"}]
+        [{/if}]
+    [{/block}]
+
+    [{block name="sidebar_categoriestree"}]
+        [{if $oView->getClassKey() != 'start' && $oView->getClassKey() != 'compare'}]
+            [{oxid_include_widget cl="oxwCategoryTree" cnid=$oView->getCategoryId() deepLevel=0 noscript=1 nocookie=1}]
+        [{/if}]
+    [{/block}]
+
+    [{block name="sidebar_partners"}]
+        [{if $oView->getClassKey() eq "start"}]
+            [{include file="widget/sidebar/partners.tpl"}]
+        [{/if}]
+    [{/block}]
+
+    [{block name="sidebar_boxproducts"}]
+        [{if $oView->getTop5ArticleList()}]
+            [{include file="widget/product/boxproducts.tpl" _boxId="topBox" _oBoxProducts=$oView->getTop5ArticleList() _sHeaderIdent="TOP_OF_THE_SHOP"}]
+        [{/if}]
+    [{/block}]
+
+    [{block name="sidebar_recommendation"}]
+        [{if $oViewConf->getShowListmania() && $oView->getSimilarRecommListIds()}]
+            [{oxid_include_widget nocookie=1 cl="oxwRecommendation" aArticleIds=$oView->getSimilarRecommListIds() searchrecomm=$oView->getRecommSearch()}]
+        [{elseif $oViewConf->getShowListmania() && $oView->getRecommSearch()}]
+            [{oxid_include_widget nocookie=1 cl="oxwRecommendation" _parent=$oView->getClassKey() searchrecomm=$oView->getRecommSearch()}]
+        [{/if}]
+    [{/block}]
+
+    [{block name="sidebar_tags"}]
+    [{/block}]
+
+    [{block name="sidebar_social"}]
+    [{/block}]
+
+    [{block name="sidebar_shopluperatings"}]
+        [{if $oView->getClassKey() eq "start"}]
+           [{include file="widget/shoplupe/ratings.tpl"}]
+        [{/if}]
+    [{/block}]
+[{/block}]
+

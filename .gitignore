@@ -1,0 +1,12 @@
+/.idea
+/vendor
+
+/source/tmp/**
+!/source/tmp/.htaccess
+/source/log/**
+!/source/log/.htaccess
+/source/cache/**
+!/source/cache/.htaccess
+
+.ide-helper.php
+.phpstorm.meta.php/**
